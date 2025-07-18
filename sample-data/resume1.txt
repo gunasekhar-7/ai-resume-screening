@@ -1,0 +1,5 @@
+John Doe  
+Experienced data scientist with 4 years in Python programming and machine learning.  
+Bachelor's degree in Computer Science.  
+Skills include Python, Machine Learning, Data Visualization, SQL.  
+Contact: john.doe@example.com

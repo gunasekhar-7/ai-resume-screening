@@ -1,0 +1,5 @@
+Data Scientist  
+We are looking for a Data Scientist to analyze large amounts of raw information to find patterns.  
+Proficiency in Python, machine learning, and data visualization is required.  
+3+ years of experience in data science or related field.  
+Bachelor's degree required.
