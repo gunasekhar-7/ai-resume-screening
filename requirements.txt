@@ -1,0 +1,32 @@
+# Streamlit app framework
+streamlit
+
+# NLP & Extraction
+spacy
+en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.0/en_core_web_lg-3.7.0-py3-none-any.whl
+
+# Semantic Embeddings & ML Scoring
+sentence-transformers
+scikit-learn
+
+# File Handling
+pymupdf  # for fitz (PDF handling)
+docx2txt
+
+# PDF Reporting
+fpdf
+
+# Email Sending
+yagmail
+python-dotenv
+
+# Voice Input & Speech Recognition
+SpeechRecognition
+sounddevice
+soundfile
+
+# General Utilities
+pandas
+
+# Database
+# (sqlite3 is included with Python stdlib, but include SQLAlchemy if you want advanced ORM features)
