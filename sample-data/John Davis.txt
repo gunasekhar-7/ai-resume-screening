@@ -1,0 +1,60 @@
+John Davis
+Email: john.davis@email.com
+Phone: +1-555-123-4567
+
+Professional Summary
+Results-driven Data Scientist with 4 years of progressive experience in machine learning, natural language processing, and AI-driven resume analysis projects. Adept at using Python, NLP tools, and cloud-based data pipelines to automate HR workflows.
+
+Skills
+Python (NumPy, pandas, scikit-learn, spaCy)
+
+Machine Learning & Data Analytics
+
+Natural Language Processing (NLP)
+
+Streamlit, FPDF, PyMuPDF
+
+Resume Parsing & Semantic Ranking
+
+SQL, SQLite
+
+Git, Docker
+
+Experience
+Data Scientist
+HR Analytics Solutions, Inc.
+Mar 2021 – Present
+
+Designed and developed an AI Resume Screening & Ranking Agent to automate candidate parsing, job-fit scoring, and reporting.
+
+Integrated transformer-based semantic matching and skills extraction modules, increasing recruiter productivity by 35%.
+
+ML Engineer
+SmartHire Technologies
+May 2019 – Feb 2021
+
+Built NLP-based modules for candidate skill extraction and experience quantification.
+
+Deployed cloud-based resume ranking systems using spaCy and sentence-transformers.
+
+Education
+Bachelor of Technology in Computer Science
+State University
+2015 – 2019
+
+Projects
+AI Resume Screening & Ranking Agent
+
+Implemented end-to-end pipeline for extracting, matching, and ranking candidates from resume batches.
+
+Enabled PDF/CSV reporting and email integration for screening outcomes.
+
+Certifications
+Certified Data Scientist (Coursera, 2021)
+
+Python for Everybody (edX, 2020)
+
+Additional Information
+Available to relocate.
+
+LinkedIn: linkedin.com/in/johndavis-datascience
