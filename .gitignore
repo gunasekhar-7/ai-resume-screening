@@ -77,3 +77,7 @@ coverage.xml
 # data/
 
 # (additional logs/configs as needed...)
+
+
+# Ignore environment variable files
+.env
