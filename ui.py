@@ -7,6 +7,7 @@ import uuid
 
 from app import file_utils, resume_parser, matcher, storage, pdf_exporter, email_utils, voice_input
 
+
 storage.init_db()
 
 st.set_page_config(layout="wide", page_title="AI Resume Screening & Ranking Agent")
@@ -14,6 +15,21 @@ st.title("AI Resume Screening & Ranking Agent")
 st.markdown(
     "Automate your recruitment. Upload a job description, resumes, and let AI rank candidates by relevance."
 )
+
+
+import spacy
+from sentence_transformers import SentenceTransformer
+
+@st.cache_resource
+def load_nlp_models():
+    # Use lightweight models for Cloud deployment
+    nlp = spacy.load("en_core_web_sm")  # en_core_web_sm must be in requirements.txt
+    embedder = SentenceTransformer("all-MiniLM-L6-v2")
+    return nlp, embedder
+
+nlp, embedder = load_nlp_models()
+
+
 
 # --- Session State Setup ---
 for key, default in [
@@ -39,7 +55,7 @@ def process_jd(jd_content, jd_filename):
 
         full_text = file_utils.extract_text_from_file(temp_jd_path)
         if full_text and full_text.strip():
-            st.session_state.parsed_jd = resume_parser.parse_job_description(full_text)
+            st.session_state.parsed_jd = resume_parser.parse_job_description(full_text, nlp)
             st.success(f"Job Description '{jd_filename}' processed.")
             suggested_title = (
                 st.session_state.parsed_jd.get('title')
@@ -74,7 +90,7 @@ def process_resumes(uploaded_files):
                 f.write(uploaded_file.getbuffer())
             resume_text = file_utils.extract_text_from_file(temp_path)
             if resume_text:
-                parsed = resume_parser.parse_resume(resume_text)
+                parsed = resume_parser.parse_resume(resume_text, nlp)
                 parsed['filename'] = uploaded_file.name
                 st.session_state.parsed_resumes_data.append(parsed)
                 st.session_state.uploaded_resumes.append({
@@ -174,7 +190,8 @@ if st.button("Run Screening & Rank Resumes", disabled=not can_run):
     with st.spinner("AI screening and ranking..."):
         st.session_state.ranked_results = matcher.rank_resumes(
             st.session_state.parsed_resumes_data,
-            st.session_state.parsed_jd
+            st.session_state.parsed_jd,
+	    embedder=embedder
         )
     st.success("Screening complete! See below for results.")
     title = st.session_state.current_job_title or "Untitled"

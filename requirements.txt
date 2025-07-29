@@ -1,35 +1,18 @@
-# STREAMLIT APP FRAMEWORK
 streamlit==1.34.0
-
-# NLP & EXTRACTION
 spacy==3.7.2
-# Use the SMALL model unless you are sure you need the large model:
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
-# To use the LARGE model instead (will HIGHLY increase RAM usage), uncomment below:
-# en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.0/en_core_web_lg-3.7.0-py3-none-any.whl
-
-# SEMANTIC EMBEDDINGS & ML SCORING
 sentence-transformers==2.2.2
 scikit-learn==1.4.2
-
-# FILE HANDLING
-pymupdf==1.23.26       # for fitz (PDF handling)
-docx2txt==1.0
-
-# PDF REPORTING
+pymupdf==1.23.26
+docx2txt==0.9
 fpdf==1.7.2
-
-# EMAIL SENDING
 yagmail==0.15.293
 python-dotenv==1.0.1
-
-# VOICE INPUT & SPEECH RECOGNITION
 SpeechRecognition==3.10.1
 sounddevice==0.4.6
 soundfile==0.12.1
-
-# GENERAL UTILITIES
 pandas==2.2.2
-
-# DATABASE (recommended: SQLAlchemy if you plan for advanced ORM use)
-# sqlalchemy==2.0.29
+# sqlalchemy==2.0.29      # only if you use this in your code
+transformers==4.29.2
+huggingface_hub==0.25.2
+sentence-transformers==2.2.2

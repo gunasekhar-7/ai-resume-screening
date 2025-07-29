@@ -4,14 +4,6 @@ import re
 from datetime import datetime
 from typing import List, Dict, Any
 
-# Load spaCy model (optimized for speed on 'en_core_web_lg')
-try:
-    nlp = spacy.load("en_core_web_lg", disable=["parser", "textcat"])
-except OSError:
-    import spacy.cli
-    spacy.cli.download("en_core_web_lg")
-    nlp = spacy.load("en_core_web_lg", disable=["parser", "textcat"])
-
 # Efficient, dynamically extendable skill list
 DEFAULT_SKILLS = [
     # (abbreviated for brevity—extend or load dynamically as needed)
@@ -19,7 +11,7 @@ DEFAULT_SKILLS = [
     # ...
 ]
 
-def _extract_skills_from_doc(doc, skillset) -> List[str]:
+def _extract_skills_from_doc(doc, skillset, nlp) -> List[str]:
     matcher = PhraseMatcher(nlp.vocab)
     patterns = [nlp.make_doc(skill) for skill in skillset]
     matcher.add("SKILL_PATTERNS", patterns)
@@ -197,26 +189,27 @@ def _extract_contact_info(doc):
     return result
 
 
-def parse_resume(full_text: str) -> Dict[str, Any]:
+def parse_resume(full_text: str, nlp) -> Dict[str, Any]:
     if not full_text:
         return {}
     doc = nlp(full_text)
     clean_text = re.sub(r'\s+', ' ', full_text).strip()
     return {
         "contact_info": _extract_contact_info(doc),
-        "skills": _extract_skills_from_doc(doc, DEFAULT_SKILLS),
+        "skills": _extract_skills_from_doc(doc, DEFAULT_SKILLS, nlp),
         "education": _extract_education_from_doc(clean_text),
         "experience": _extract_experience_details(clean_text),
         "total_experience_years": _calculate_total_experience(_extract_experience_details(clean_text)),
         "full_text": clean_text
     }
 
-def parse_job_description(jd_text: str) -> Dict[str, Any]:
+
+def parse_job_description(jd_text: str, nlp) -> Dict[str, Any]:
     if not jd_text:
         return {}
     doc = nlp(jd_text)
     clean_text = re.sub(r'\s+', ' ', jd_text).strip()
-    skills = _extract_skills_from_doc(doc, DEFAULT_SKILLS)
+    skills = _extract_skills_from_doc(doc, DEFAULT_SKILLS, nlp)
     experience_req = 0
     exp_match = re.search(r'(\d+)(?:\+)?\s*(?:years?|yrs?)\s+of\s+experience', jd_text, re.I)
     if exp_match:
