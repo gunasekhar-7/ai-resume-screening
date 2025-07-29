@@ -80,3 +80,11 @@ coverage.xml
 # data/
 
 # (Other logs/configs as needed...)
+venv311/
+__pycache__/
+*.pyc
+.env
+*.db
+*.log
+.streamlit/
+# etc.
