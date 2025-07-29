@@ -1,32 +1,35 @@
-# Streamlit app framework
-streamlit
+# STREAMLIT APP FRAMEWORK
+streamlit==1.34.0
 
-# NLP & Extraction
-spacy
-en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.0/en_core_web_lg-3.7.0-py3-none-any.whl
+# NLP & EXTRACTION
+spacy==3.7.2
+# Use the SMALL model unless you are sure you need the large model:
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+# To use the LARGE model instead (will HIGHLY increase RAM usage), uncomment below:
+# en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.0/en_core_web_lg-3.7.0-py3-none-any.whl
 
-# Semantic Embeddings & ML Scoring
-sentence-transformers
-scikit-learn
+# SEMANTIC EMBEDDINGS & ML SCORING
+sentence-transformers==2.2.2
+scikit-learn==1.4.2
 
-# File Handling
-pymupdf  # for fitz (PDF handling)
-docx2txt
+# FILE HANDLING
+pymupdf==1.23.26       # for fitz (PDF handling)
+docx2txt==1.0
 
-# PDF Reporting
-fpdf
+# PDF REPORTING
+fpdf==1.7.2
 
-# Email Sending
-yagmail
-python-dotenv
+# EMAIL SENDING
+yagmail==0.15.293
+python-dotenv==1.0.1
 
-# Voice Input & Speech Recognition
-SpeechRecognition
-sounddevice
-soundfile
+# VOICE INPUT & SPEECH RECOGNITION
+SpeechRecognition==3.10.1
+sounddevice==0.4.6
+soundfile==0.12.1
 
-# General Utilities
-pandas
+# GENERAL UTILITIES
+pandas==2.2.2
 
-# Database
-# (sqlite3 is included with Python stdlib, but include SQLAlchemy if you want advanced ORM features)
+# DATABASE (recommended: SQLAlchemy if you plan for advanced ORM use)
+# sqlalchemy==2.0.29
