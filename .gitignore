@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
+# C/C++/Cython extensions
 *.so
 
 # Distribution / packaging
@@ -52,7 +52,7 @@ coverage.xml
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints
 
-# IDE settings
+# IDE/editor settings
 .idea/
 .vscode/
 
@@ -70,14 +70,13 @@ coverage.xml
 *.db
 *.sqlite3
 
-# Generated report files (optional, if you want to ignore downloaded/exported PDFs)
+# Generated report files (optional - ignore if you want to keep/export PDFs)
 *.pdf
+
+# Environment variable files (keep secrets out of git!)
+.env
 
 # Local/test data (optional; keep sample data if you want versioned example data)
 # data/
 
-# (additional logs/configs as needed...)
-
-
-# Ignore environment variable files
-.env
+# (Other logs/configs as needed...)
