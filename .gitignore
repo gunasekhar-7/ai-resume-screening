@@ -67,7 +67,7 @@ coverage.xml
 .streamlit/
 
 # SQLite or other databases (if generated locally)
-*.db
+resume_screening.db
 *.sqlite3
 
 # Generated report files (optional - ignore if you want to keep/export PDFs)
